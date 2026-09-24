@@ -14,6 +14,7 @@ class Contact {
     public String getPhone() { return phone; } 
     public void setPhone(String phone) { this.phone = phone; }
 
+    @Override
     public String toString() {
         return name + ": " + phone; 
     }
@@ -47,6 +48,7 @@ class ContactBook {
 }
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -59,6 +61,67 @@ public class Main {
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("In 5 years, " + name + " will be " + (age + 5) + " years old.\n");
+
+        System.out.print("Enter a Day number (1-7): ");
+        int day = Integer.parseInt(scanner.nextLine());
+
+        switch (day) {
+            case 1: System.out.println("Monday"); break;
+            case 2: System.out.println("Tuesday"); break;
+            case 3: System.out.println("Wednesday"); break;
+            case 4: System.out.println("Thursday"); break;
+            case 5: System.out.println("Friday"); break;
+            case 6: System.out.println("Saturday"); break;
+            case 7: System.out.println("Sunday"); break;
+            default: System.out.println("Invalid Day");
+        }
+
+        System.out.println("\nCounting 1 to 5 with a loop:");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nCounting down with a while loop: ");
+        int m = 5;
+        while (m > 0) {
+            System.out.print(m + " ");
+            m--;
+        }
+        System.out.println();
+
+        System.out.println("\ndo-while example: ");
+        int z = 0;
+        do {
+            System.out.println("z = " + z);
+            z++; 
+        } while (z < 3);
+
+        System.out.println("\nSkipping 3 using continue, stopping at 7 using break: ");
+        for (int i = 1; i <= 10; i++) {
+            if (i == 3) continue;
+            if (i == 7) break;
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+
+        System.out.println("------Methods Demo------");
+        int sum = add(5, 7);
+        System.out.println("5 + 7 = " + sum);
+
+        double sq = square(4.5);
+        System.out.println("4.5 squared = " + sq);
+
+        greet("Maria");
+
+        System.out.println("5! = " + factorial(5));
+
+        System.out.println("multiply(2,3) = " + multiply(2, 3));
+        System.out.println("multiply(2.5,4.0) = " + multiply(2.5, 4.0));
+
+        System.out.println("power(5) = " + power(5));
+        System.out.println("power(5,3) = " + power(5, 3));
+        System.out.println();
 
         System.out.println("------Contact Book Demo------");
         ContactBook book = new ContactBook();
@@ -80,5 +143,38 @@ public class Main {
         book.listAll();
         
         scanner.close();
+    }
+
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static double square(double num) {
+        return num * num;
+    }
+
+    public static void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    public static int factorial(int n) {
+        if (n <= 1) return 1;
+        return n * factorial(n - 1);
+    }
+
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+
+    public static double power(double base) {
+        return Math.pow(base, 2);
+    }
+
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
     }
 }
